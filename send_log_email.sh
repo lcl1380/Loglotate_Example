@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG_FILE="/home/ubuntu/resource_usage.log"
-EMAIL="nayeo2@naver.com"
+EMAIL="chxndda@gmail.com"
 SUBJECT="Resource Usage Log"
 BODY="Please find the attached resource usage log."
 
