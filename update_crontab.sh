@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # 크론탭에서 제거할 구문
-CRON_JOB="*/2* * * * sudo /var/lib/jenkins/workspace/A-KDT-logging/resource_usage.sh"
+CRON_JOB="* * * * * sudo /var/lib/jenkins/workspace/A-KDT-logging/resource_usage.sh"
 
 # 현재 사용자 크론탭을 임시 파일에 백업
 crontab -l > current_crontab.txt 2>/dev/null
