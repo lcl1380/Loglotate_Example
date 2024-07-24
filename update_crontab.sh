@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 크론탭에서 제거할 구문
+# 제거할 크론잡 구문 (공백을 정확히 맞춰야 합니다)
 OLD_CRON_JOB="*/5 * * * * sudo /home/ubuntu/log_resource_usage.sh"
 
 # 새 크론잡 구문 (1분마다 실행)
@@ -10,10 +10,12 @@ NEW_CRON_JOB="* * * * * sudo /home/ubuntu/log_resource_usage.sh"
 crontab -l > current_crontab.txt 2>/dev/null
 
 # 임시 파일에서 특정 구문을 포함하지 않는 라인만을 새로운 파일로 저장
-grep -v "$OLD_CRON_JOB" current_crontab.txt > new_crontab.txt
+grep -v -F "$OLD_CRON_JOB" current_crontab.txt > new_crontab.txt
 
-# 새로운 크론탭 파일에 새 구문을 추가
-echo "$NEW_CRON_JOB" >> new_crontab.txt
+# 새로운 크론탭 파일에 새 구문을 추가 (중복 확인 필요)
+if ! grep -Fq "$NEW_CRON_JOB" new_crontab.txt; then
+    echo "$NEW_CRON_JOB" >> new_crontab.txt
+fi
 
 # 새로운 크론탭 파일을 적용
 crontab new_crontab.txt
