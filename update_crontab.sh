@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 크론탭에서 제거할 구문
-OLD_CRON_JOB="*/5 * * * * sudo /home/ubuntu/resource_usage.sh"
+OLD_CRON_JOB="*/5 * * * * sudo /home/ubuntu/log_resource_usage.sh"
 
 # 새 크론잡 구문 (1분마다 실행)
-NEW_CRON_JOB="* * * * * sudo /home/ubuntu/resource_usage.sh"
+NEW_CRON_JOB="* * * * * sudo /home/ubuntu/log_resource_usage.sh"
 
 # 현재 사용자 크론탭을 임시 파일에 백업
 crontab -l > current_crontab.txt 2>/dev/null
