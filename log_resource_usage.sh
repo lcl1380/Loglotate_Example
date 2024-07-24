@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 로그 파일 위치 설정
-LOG_FILE="/var/log/resource_usage.log"
+LOG_FILE="resource_usage.log"
 
 # 현재 시간 가져오기
 CURRENT_TIME=$(date "+%Y-%m-%d %H:%M:%S")
